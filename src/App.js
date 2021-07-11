@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import BookShelfes from './components/BookShelfes/BookShelfes'
+import FullInfo from './components/FullInfo/FullInfo'
+import style from './App.module.scss'
+import { useState } from 'react'
 
 function App() {
+
+  const [book, setBook] = useState(null)
+
+  const [editedBook, setEditedBook] = useState()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.container}>
+      <BookShelfes setBook={setBook} clickedBook={book} editedBook={editedBook} setEditedBook={setEditedBook} />
+      <FullInfo clickedBook={book} />
     </div>
   );
 }

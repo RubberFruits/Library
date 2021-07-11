@@ -1,0 +1,117 @@
+.container{
+   border-right:5px solid rgba(128, 128, 128,0.5);
+   width:50%;
+   height:100%;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   align-items:center;
+}
+
+.container__title{
+   font-size:40px;
+   font-family:'Montserrat',sans-serif;
+   border-bottom:3px solid
+}
+
+.container__sort{
+   display:flex;
+   width:90%;
+   align-self: flex-start;
+   justify-content:space-between;
+   flex-wrap: wrap;
+   margin-left:50px;
+   margin-top:50px;
+   font-family:'Montserrat',sans-serif;
+}
+
+.container__sortItems{
+   display:flex;
+}
+
+.container__sortAuthor{
+   margin-left:20px;
+   height:20px;
+   font-weight:700;
+   cursor:pointer;
+   transition:all 0.1s ease;
+   padding-right: 15px;
+   border-right: 2px solid black;
+   &:hover{
+      transform: scale(1.2);
+   }
+}
+
+.container__sortName{
+   margin-left:20px;
+   width: max-content;
+   height:20px;
+   cursor:pointer;
+   padding-right: 15px;
+   border-right: 2px solid black;
+   transition:all 0.1s ease;
+   &:hover{
+      transform: scale(1.2);
+   }
+}
+
+.container__stopSort{
+   margin-left:20px;
+   width: max-content;
+   cursor:pointer;
+   transition:all 0.1s ease;
+   &:hover{
+      transform: scale(1.2);
+   }
+}
+
+.addBook{
+   height:20px;
+   padding: 10px;
+   color:white;
+   cursor:pointer;
+   background-color:yellowgreen;
+   border-radius: 10px;
+   transition: all 0.2s ease;
+   &:hover{
+      transform: scale(1.2)
+   }
+}
+
+.shelfes{
+   width:90%;
+   height:90%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content:space-between;
+   align-items:center;
+   flex-wrap: wrap;
+}
+
+@media (max-width: 1050px){
+   .container__title{
+      font-size: 30px;
+   }
+   .container__sort{
+      font-size:15px;
+      margin-right:50px;
+      margin-left:10px;
+   }
+   .container__sortItems{
+      margin-right:10px;
+      margin-bottom:10px;
+   }
+   .addBook{
+      margin-bottom:10px;
+   }
+}
+
+@media (max-width: 760px){
+   .container{
+      width: 100%;
+      border-right:none;
+   }
+   .container__sort{
+      margin-left:40px;
+   }
+}

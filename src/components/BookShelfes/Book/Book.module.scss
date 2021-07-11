@@ -1,0 +1,108 @@
+.book_container{
+   font-family:'Montserrat',sans-serif;
+   position:relative;
+   width:20%;
+   height:200px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color:white;
+   border-bottom:10px solid brown;
+}
+
+.book{
+   width:fit-content;
+   height:200px;
+   display: flex;
+   justify-content:center;
+   align-items:center;
+   cursor:pointer;
+   border-radius:8px;
+   transition:all 0.2s ease;
+}
+
+.author{
+   transform:rotate(180deg);
+   max-height: 185px;
+   writing-mode: vertical-rl;
+   margin-left:7px;
+   text-align: center;
+   border-left: 1px solid white;
+   transition:all 0.2s ease;
+}
+.name{
+   transform:rotate(180deg);
+   writing-mode: vertical-rl;
+   max-height: 185px;
+   text-align: center;
+   margin-right: 5px;
+   transition:all 0.2s ease;
+}
+
+.clickedBookContainer{
+   position:relative;
+   z-index: 1;
+}
+
+.clickedBook{
+   position: relative;
+   box-sizing: border-box;
+   flex-direction: column;
+   transition:all 0.2s ease;
+   width:max-content;
+   border: 5px dotted #979fa4;
+}
+
+.clickedBook__author{
+   writing-mode:horizontal-tb ;
+   transform:rotate(0deg);
+   border-left: none;
+   border-bottom: 1px solid white;
+   margin:0 5px 10px 5px;
+   max-width: max-content;
+}
+
+.clickedBook__name{
+   transform:rotate(0deg);
+   writing-mode:horizontal-tb;
+   margin:0 5px;
+}
+
+.deleteBook,
+.editBook{
+   opacity: 0;
+   position:absolute;
+   width:20px;
+   height:20px;
+   transition: all 0.2s ease;
+   cursor: pointer;
+   background-color:white;
+}
+
+.deleteBook{
+   mask-image: url(../../../assets/images/delete.svg);
+   top:10px;
+   left:45%;
+}
+.editBook{
+   mask-image: url(../../../assets/images/edit.svg);
+   bottom:10px;
+   left:45%;
+}
+
+.book_container:hover > .deleteBook{
+   opacity: 1;
+}
+
+.book_container:hover > .editBook{
+   opacity: 1;
+}
+
+@media (max-width:770px){
+   .editBook,
+   .deleteBook{
+      background-color:white;
+      left:40%;
+      opacity: 1;
+}
+}
