@@ -5,7 +5,7 @@ const Book = ({ bookInfo, setBook, clickedBook, deleteBook, setEditedBook }) => 
    const onSetBook = (event) => {
       const settedBook = {
          name: bookInfo.name,
-         author: bookInfo.author,
+         author: bookInfo.fullAuthor,
          pages: bookInfo.pages,
          year: bookInfo.year
       }

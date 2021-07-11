@@ -5,19 +5,18 @@ import EditForm from '../EditForm/EditForm'
 
 const BookShelfes = ({ setBook, clickedBook, editedBook, setEditedBook }) => {
 
-   const [sort, setSort] = useState('')
-   console.log(sort);
+   const [sort, setSort] = useState(null)
    const sorting = field => {
       return (a, b) => a[field] > b[field] ? 1 : -1;
    }
 
    const data = [
-      { author: 'Шекспир', fullAuthor: 'Уильям Шекспир', name: 'Гамлет', pages: 340, year: 1845, color: '#717171' },
-      { author: 'Вальтер', fullAuthor: 'Вальтер Скотт', name: 'Гай Мэннеринг', pages: 140, year: 1795, color: '#fd0166' },
-      { author: 'Пелевин', fullAuthor: 'Виктор Олегович Пелевин', name: 'Чапаев и Пустота', pages: 3540, year: 1145, color: '#6100ed' },
-      { author: 'Вальтер', fullAuthor: 'Вальтер Скотт', name: 'Айвенго', pages: 1040, year: 1045, color: '#fd0166' },
-      { author: 'Толстой', fullAuthor: 'Лев Толстой', name: 'Война и мир', pages: 440, year: 1657, color: '#13c9bd' },
-      { author: 'Достоевский', fullAuthor: 'Фёдор Достоевский', name: 'Преступление и наказание ', pages: 1040, year: 1045, color: '#333' }
+      { author: 'Шекспир', fullAuthor: 'Уильям Шекспир', name: 'Гамлет', pages: 640, year: 1603, color: '#717171' },
+      { author: 'Вальтер', fullAuthor: 'Вальтер Скотт', name: 'Гай Мэннеринг', pages: 421, year: 1815, color: '#fd0166' },
+      { author: 'Пелевин', fullAuthor: 'Виктор Олегович Пелевин', name: 'Чапаев и Пустота', pages: 212, year: 1996, color: '#6100ed' },
+      { author: 'Вальтер', fullAuthor: 'Вальтер Скотт', name: 'Айвенго', pages: 1040, year: 1819, color: '#fd0166' },
+      { author: 'Толстой', fullAuthor: 'Лев Толстой', name: 'Война и мир', pages: 1540, year: 1867, color: '#13c9bd' },
+      { author: 'Достоевский', fullAuthor: 'Фёдор Достоевский', name: 'Преступление и наказание ', pages: 366, year: 1866, color: '#333' }
    ]
 
    const [books, setAllBooks] = useState(data)
@@ -59,13 +58,13 @@ const BookShelfes = ({ setBook, clickedBook, editedBook, setEditedBook }) => {
                Сортировка:
                <div className={style.container__sortItems}>
                   <div
-                     className={style.container__sortAuthor}
+                     className={`${style.container__sortAuthor} ${sort === 'author' ? style.selectedSort : ''}`}
                      onClick={() => setSort('author')}
                   >
                      По автору
                   </div>
                   <div
-                     className={style.container__sortName}
+                     className={`${style.container__sortName} ${sort === 'name' ? style.selectedSort : ''}`}
                      onClick={() => setSort('name')}
                   >
                      По названию
@@ -83,8 +82,8 @@ const BookShelfes = ({ setBook, clickedBook, editedBook, setEditedBook }) => {
             </div>
             <div className={style.shelfes}>
                {
-                  !sort ?
-                     books.map(book => (
+                  sort === '' ?
+                     data.map(book => (
                         <Book
                            clickedBook={clickedBook}
                            key={book.name}
